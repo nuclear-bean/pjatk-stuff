@@ -1,0 +1,80 @@
+<%- include('../../fragments/header.ejs') %>
+
+ <main>
+  <h2>Szczegóły pojazdu</h2>
+
+
+  <form class="form">
+
+   <div>
+    <label for="registration">Nr. rejestracyjny:</label>
+   </div>
+   <div>
+    <input type="text" disabled name="registration" id="registration" value="AB1234C">
+   </div>
+
+   <div>
+    <label for="type">Typ:</label>
+   </div>
+   <div>
+    <input disabled type="text" name="type" id="type" value="osobowy">
+   </div>
+
+   <div>
+    <label for="color">Kolor</label>
+   </div>
+   <div>
+    <input disabled type="text" name="color" id="color" value="biały">
+   </div>
+   <p><a class="button-edit" href="#">Edytuj</a></p>
+  </form>
+
+
+
+  <br>
+  <br>
+  <h2>Rejestr pojazdu</h2>
+
+  <table class="table-list">
+   <thead>
+   <tr>
+    <th>Kamera</th>
+    <th>Czas</th>
+    <th>Autoryzowano</th>
+    <th>Kierunek</th>
+   </tr>
+   </thead>
+
+
+   <tbody>
+   <tr>
+    <td>1</td>
+    <td>14:08:12</td>
+    <td>true</td>
+    <td>true</td>
+   </tr>
+
+   <tr>
+    <td>3</td>
+    <td>02:43:55</td>
+    <td>false</td>
+    <td>true</td>
+   </tr>
+
+   <tr>
+    <td>2</td>
+    <td>18:00:35</td>
+    <td>true</td>
+    <td>false</td>
+   </tr>
+
+   </tbody>
+  </table>
+
+
+  <p><a class="button-edit" href="#">Edytuj</a></p>
+
+
+
+ </main>
+<%- include('../../fragments/footer.ejs') %>

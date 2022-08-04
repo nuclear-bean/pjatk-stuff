@@ -1,0 +1,53 @@
+<%- include('../../fragments/header.ejs') %>
+
+ <main>
+  <h2>Szczegóły wpisu do rejestru</h2>
+
+
+  <form class="form">
+
+   <div>
+    <label for="registration">Numer rej.:</label>
+   </div>
+   <div>
+    <input type="text" disabled name="registration" id="registration" value="WX123B">
+   </div>
+
+   <div>
+    <label for="camera">Kamera:</label>
+   </div>
+   <div>
+    <input disabled type="text" name="camera" id="camera" value="2">
+   </div>
+
+   <div>
+    <label for="time">Czas</label>
+   </div>
+   <div>
+    <input disabled type="text" name="time" id="time" value="18:15:32">
+   </div>
+
+   <div>
+    <label for="authorized">Autoryzowano</label>
+   </div>
+   <div>
+    <input disabled type="text" name="authorized" id="authorized" value="true">
+   </div>
+
+   <div>
+    <label for="direction">Kierunek</label>
+   </div>
+   <div>
+    <input disabled type="text" name="direction" id="direction" value="false">
+   </div>
+
+   <p><a class="button-edit" href="#">Edytuj</a></p>
+  </form>
+  
+  <br>
+
+
+
+ </main>
+
+<%- include('../../fragments/footer.ejs') %>

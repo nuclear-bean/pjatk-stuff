@@ -1,0 +1,46 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+  <h2>Szczegóły kamery</h2>
+
+
+  <form class="form">
+
+   <div>
+    <label for="alias">Alias:</label>
+   </div>
+   <div>
+    <input type="text" disabled name="alias" id="alias" value="Brama gł.">
+   </div>
+
+   <div>
+    <label for="location">Lokalizacja:</label>
+   </div>
+   <div>
+    <input disabled type="text" name="location" id="location" value="Budynek A">
+   </div>
+
+   <div>
+    <label for="manufacturer">Producent</label>
+   </div>
+   <div>
+    <input disabled type="text" name="manufacturer" id="manufacturer" value="DVS Polska">
+   </div>
+
+   <div>
+    <label for="resolution">Rozdzielczość</label>
+   </div>
+   <div>
+    <input disabled type="text" name="resolution" id="resolution" value="1080p">
+   </div>
+   <p><a class="button-edit" href="#">Edytuj</a></p>
+  </form>
+
+  <br>
+
+
+
+ </main>
+
+
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,42 @@
+<%- include('../../fragments/header.ejs') %>
+
+ <main>
+  <h2>Lista pojazdów</h2>
+
+
+  <table class="table-list">
+   <thead>
+   <tr>
+    <th>Numer rej.</th>
+    <th>Typ</th>
+    <th>Kolor</th>
+    <th>Akcje</th>
+   </tr>
+   </thead>
+
+   <tbody>
+   <% for (let veh of vehs) { %>
+    <tr>
+     <td><%= veh.registration %></td>
+     <td><%= veh.type %></td>
+     <td><%= veh.color %></td>
+
+     <td>
+      <ul class="list-actions">
+       <li><a href="/vehicle/details/<%=veh.registration%>" class="list-actions-button-details">Szczegóły</a></li>
+       <li><a href="/vehicle/edit/<%=veh.registration%>" class="list-actions-button-edit">Edytuj</a></li>
+       <li><a href="/vehicle/delete/<%=veh.registration%>" class="list-actions-button-delete">Usuń</a></li>
+      </ul>
+     </td>
+    </tr>
+   <% } %>
+   </tbody>
+   
+   
+   
+  </table>
+
+  <p><a class="button-add" href="/vehicle/add">Dodaj nowy pojazd</a></p>
+
+ </main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,53 @@
+<%- include('../../fragments/header.ejs') %>
+
+ <main>
+
+  <p <%= (errorMessage === 'none') ? 'hidden' : '' %> style="color: red; font-weight: bold ">Wystąpił błąd poczas usuwania wpisu. Wiadomość błędu zostałą wyświetlona poniżej:</p>
+  <p <%= (errorMessage === 'none') ? 'hidden' : '' %> style="font-style: italic; font-size: small"><%= errorMessage %></p>
+  <p <%= (errorMessage === 'none') ? 'hidden' : '' %> style="color: red; font-size: small">Zapisz powyższą wiadomość. Jeżeli problem nie ustąpi, skontaktuj się z administratorem systemu.</p>
+
+
+  <h2>Lista kamer</h2>
+
+  <table class="table-list">
+   <thead>
+   <tr>
+    <th>ID</th>
+    <th>Alias</th>
+    <th>Lokalizacja</th>
+    <th>Producent</th>
+    <th>Rozdzielczość</th>
+    <th>Akcje</th>
+   </tr>
+   </thead>
+
+   <tbody>
+   <% for (let cam of cams) { %>
+    <tr>
+     <td><%= cam.id %></td>
+     <td><%= cam.alias %></td>
+     <td><%= cam.location %></td>
+     <td><%= cam.manufacturer %></td>
+     <td><%= cam.resolution %></td>
+
+     
+     <td>
+      <ul class="list-actions">
+       <li><a href="/camera/details/<%=cam.id%>" class="list-actions-button-details">Szczegóły</a></li>
+       <li><a href="/camera/edit/<%=cam.id%>" class="list-actions-button-edit">Edytuj</a></li>
+       <li><a href="/camera/delete/<%=cam.id%>" class="list-actions-button-delete">Usuń</a></li>
+      </ul>
+     </td>
+    </tr>
+   <% } %>
+   </tbody>
+
+
+  </table>
+
+  <p><a class="button-add" href="camera/add">Dodaj nową kamerę</a></p>
+
+ </main>
+
+
+<%- include('../../fragments/footer.ejs') %>

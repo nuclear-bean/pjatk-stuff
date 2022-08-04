@@ -1,0 +1,118 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <script type="application/javascript" src="../../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../../js/validationCameraForm.js"></script>
+
+    <h2><%= pageTitle %></h2>
+
+    <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm()">
+
+        <input type="hidden" name="id" value="<%= cam.id %>">
+
+        <label for="alias">Alias:<abbr title="required" aria-label="required">*</abbr></label>
+
+        <input type="text" name="alias" id="alias" value="<%= cam.alias %>"
+                <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+               class="<%= validationErrors.find(e => e.path.includes('alias')) ? 'error-input' : '' %>"
+        />
+
+        <span id="errorAlias" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('alias'))) { %>
+                <%= validationErrors.find(e => e.path.includes('alias')).message %>
+            <% } %>
+        </span>
+
+
+        <label for="location">Lokalizacja:</label>
+        <input type="text" name="location" id="location" value="<%= cam.location %>"
+                <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+               class="<%= validationErrors.find(e => e.path.includes('location')) ? 'error-input' : '' %>"
+        />
+
+        <span id="errorLocation" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('location'))) { %>
+                <%= validationErrors.find(e => e.path.includes('location')).message %>
+            <% } %>
+        </span>
+
+
+        <label for="manufacturer">Producent:</label>
+        <input type="text" name="manufacturer" id="manufacturer" value="<%= cam.manufacturer %>"
+                <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+               class="<%= validationErrors.find(e => e.path.includes('manufacturer')) ? 'error-input' : '' %>"
+        />
+        <span id="errorManufacturer" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('manufacturer'))) { %>
+                <%= validationErrors.find(e => e.path.includes('manufacturer')).message %>
+            <% } %>
+        </span>
+
+
+
+        <label for="resolution">Rozdzielczość:</label>
+
+        <input type="text" name="resolution" id="resolution" value="<%= cam.resolution %>"
+                <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+               class="<%= validationErrors.find(e => e.path.includes('resolution')) ? 'error-input' : '' %>"
+        />
+        <span id="errorResolution" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('resolution'))) { %>
+                <%= validationErrors.find(e => e.path.includes('resolution')).message %>
+            <% } %>
+        </span>
+
+
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode !== 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%= btnLabel %>"/>
+                <a class="form-button-cancel" href="/camera">Anuluj</a>
+            <% } else { %>
+                <a href="/camera/edit/<%= cam.id %>" class="button-edit form-button-edit">Edytuj</a>
+                <a class="form-button-cancel" href="/camera">Powrót</a>
+            <% } %>
+        </div>
+
+
+    </form>
+
+
+    <!--REGISTRY DATA-->
+    <% if (formMode === 'showDetails' || formMode === 'edit') { %>
+        <h2 style="margin-top: 1.5em">
+            Wpisy rejestru dotyczące kamery <%= cam.alias %>
+        </h2>
+        <table class="table-list" style="width: 60%">
+            <thead>
+            <tr>
+                <th>ID wpisu w rejestrze</th>
+                <th>Rejestracja pojazdu</th>
+                <th>Czas</th>
+                <th>Autoryzowano</th>
+                <th>Kierunek</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (let e of encounters) { %>
+                <tr>
+                    <td><a class="td-a" href="/encounter/details/<%= e.id %>"><%= e.id %></a></td>
+                    <td><a class="td-a" href="/vehicle/details/<%= e.Car_registration %>"><%= e.Car_registration %></a></td>
+                    <td><%= e.time.toISOString().split('T')[0] + ' ' + e.time.toISOString().split('T')[1].substring(0,8) %></td>
+                    <td><%= (e.authorized === 1) ? 'tak' : 'nie' %></td>
+                    <td><%= (e.direction === '1') ? 'przodem' : 'tyłem' %> </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+        <span style="margin-top: 2px">
+            <%= (encounters.length === 0) ? 'Brak wpisów' : '' %>
+        </span>
+    <% } %>
+
+
+</main>
+
+
+<%- include('../../fragments/footer.ejs') %>

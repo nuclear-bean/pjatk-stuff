@@ -1,0 +1,48 @@
+<%- include('../../fragments/header.ejs') %>
+ <main>
+  <h2>Rejestr</h2>
+
+
+  <table class="table-list">
+   <thead>
+   <tr>
+    <th>ID</th>
+    <th>Numer rej.</th>
+    <th>Kamera</th>
+    <th>Czas</th>
+    <th>Autoryzowano</th>
+    <th>Kierunek</th>
+    <th>Akcje</th>
+   </tr>
+   </thead>
+
+
+   <tbody>
+   <% for (let enc of encs) { %>
+    <tr>
+     <td><%= enc.id %></td>
+     <td><%= enc.Car_registration %></td>
+     <td><%= enc.Camera_id %></td>
+     <td><%= enc.time.toISOString().split('T')[0] + ' ' +  enc.time.toISOString().split('T')[1].substring(0,8)%></td>
+     <td><%= (enc.authorized === 1) ? 'tak' : 'nie' %></td>
+     <td><%= (enc.direction === '1') ? 'przodem' : 'tyłem' %></td>
+
+     <td>
+      <ul class="list-actions">
+       <li><a href="/encounter/details/<%=enc.id%>" class="list-actions-button-details">Szczegóły</a></li>
+       <li><a href="/encounter/edit/<%=enc.id%>" class="list-actions-button-edit">Edytuj</a></li>
+       <li><a href="/encounter/delete/<%=enc.id%>" class="list-actions-button-delete">Usuń</a></li>
+      </ul>
+     </td>
+    </tr>
+   <% } %>
+   </tbody>
+   
+   
+  </table>
+
+  <p><a class="button-add" href="/encounter/add">Dodaj nowy wpis</a></p>
+
+ </main>
+
+<%- include('../../fragments/footer.ejs') %>

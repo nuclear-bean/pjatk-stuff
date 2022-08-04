@@ -1,0 +1,4 @@
+<p <%= (errorMessage === 'none') ? 'hidden' : '' %> style="color: red; font-weight: bold ">Wystąpił błąd poczas komunikacji z bazą danych. Wiadomość błędu została wyświetlona poniżej:</p>
+<p <%= (errorMessage === 'none') ? 'hidden' : '' %> style="font-style: italic; font-size: small"><%= errorMessage %></p>
+<p <%= (errorMessage === 'none') ? 'hidden' : '' %> style="color: red; font-size: small">Zapisz powyższą wiadomość. Jeżeli problem nie ustąpi, skontaktuj się z administratorem systemu.</p>
+<br>

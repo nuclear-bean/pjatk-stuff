@@ -1,0 +1,102 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <script type="application/javascript" src="../../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../../js/validationVehicleForm.js"></script>
+    <h2><%= pageTitle %></h2>
+
+    <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
+
+        <!--REGISTRATION-->
+
+        <input type="hidden" name="id" value="<%= veh.registration %>">
+        <label for="registration">Nr. rej.:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="registration" id="registration" value="<%= veh.registration %>"
+                <%= (formMode === 'showDetails' || formMode === 'edit') ? 'disabled' : '' %>
+               class="<%= validationErrors.find(e => e.path.includes('registration')) ? 'error-input' : '' %>"
+               contenteditable="false"
+        />
+        <span id="errorRegistration" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('registration'))) { %>
+                <%= validationErrors.find(e => e.path.includes('registration')).message %>
+            <% } %>
+        </span>
+
+
+        <!--TYPE-->
+
+        <label for="type">Typ:</label>
+        <input type="text" name="type" id="type" value="<%= veh.type %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>
+               class="<%= validationErrors.find(e => e.path.includes('type')) ? 'error-input' : '' %>"
+        />
+        <span id="errorType" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('type'))) { %>
+                <%= validationErrors.find(e => e.path.includes('type')).message %>
+            <% } %>
+        </span>
+
+        <!--COLOR-->
+
+        <label for="color">Kolor:</label>
+        <input type="text" name="color" id="color" value="<%= veh.color %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>
+               class="<%= validationErrors.find(e => e.path.includes('color')) ? 'error-input' : '' %>"
+        />
+        <span id="errorColor" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('color'))) { %>
+                <%= validationErrors.find(e => e.path.includes('color')).message %>
+            <% } %>
+        </span>
+
+
+        <!--FORM BUTTONS-->
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%= btnLabel %>"/>
+                <a class="form-button-cancel" href="/vehicle">Anuluj</a>
+            <% } else { %>
+                <a href="/vehicle/edit/<%=veh.registration %>" class="button-edit form-button-edit">Edytuj</a>
+                <a class="form-button-cancel" href="/vehicle">Powrót</a>
+            <% } %>
+        </div>
+
+
+    </form>
+
+    <!--REGISTRY DATA-->
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2 style="margin-top: 1.5em">
+            Wpisy rejestru dotyczące pojazdu <%= veh.registration %>
+        </h2>
+        <table class="table-list" style="width: 60%">
+            <thead>
+            <tr>
+                <th>ID wpisu w rejestrze</th>
+                <th>ID Kamery</th>
+                <th>Czas</th>
+                <th>Autoryzowano</th>
+                <th>Kierunek</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (let e of encounters) { %>
+                <tr>
+                    <td><a class="td-a" href="/encounter/details/<%= e.id %>"><%= e.id %></a></td>
+                    <td><a class="td-a" href="/camera/details/<%= e.Camera_id %>"><%= e.Camera_id %></a></td>
+                    <td><%= e.time.toISOString().split('T')[0] + ' ' + e.time.toISOString().split('T')[1].substring(0,8) %></td>
+                    <td><%= (e.authorized === 1) ? 'tak' : 'nie' %></td>
+                    <td><%= (e.direction === '1') ? 'przodem' : 'tyłem' %> </td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+        <span style="margin-top: 2px">
+            <%= (encounters.length === 0) ? 'Brak wpisów' : '' %>
+        </span>
+    <% } %>
+
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

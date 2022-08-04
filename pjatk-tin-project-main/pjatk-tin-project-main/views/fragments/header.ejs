@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V.A.C.S</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+
+<header>
+    <h1>V.A.C.S. - Vehicle Access Control System</h1>
+    <img src="/images/logo.png" alt="V.A.C.S logo">
+</header>
+<nav>
+    <ul>
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+        <li><a href="/vehicle" class="<%= navLocation == 'vehicle' ? 'active' : ''%>">Pojazdy</a></li>
+        <li><a href="/encounter" class="<%= navLocation == 'encounter' ? 'active' : ''%>">Rejestr</a></li>
+        <li><a href="/camera" class="<%= navLocation == 'camera' ? 'active' : ''%>">Kamery</a></li>
+    </ul>
+</nav>
