@@ -1,0 +1,13 @@
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\bin\Debug\netcoreapp3.1\LinqConsoleApp.exe
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\bin\Debug\netcoreapp3.1\LinqConsoleApp.deps.json
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\bin\Debug\netcoreapp3.1\LinqConsoleApp.runtimeconfig.json
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\bin\Debug\netcoreapp3.1\LinqConsoleApp.runtimeconfig.dev.json
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\bin\Debug\netcoreapp3.1\LinqConsoleApp.dll
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\bin\Debug\netcoreapp3.1\LinqConsoleApp.pdb
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\obj\Debug\netcoreapp3.1\LinqConsoleApp.csprojAssemblyReference.cache
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\obj\Debug\netcoreapp3.1\LinqConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\obj\Debug\netcoreapp3.1\LinqConsoleApp.AssemblyInfo.cs
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\obj\Debug\netcoreapp3.1\LinqConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\obj\Debug\netcoreapp3.1\LinqConsoleApp.dll
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\obj\Debug\netcoreapp3.1\LinqConsoleApp.pdb
+C:\Users\Pawel\source\repos\Kuba\Cwiczenia9\LinqConsoleApp\obj\Debug\netcoreapp3.1\LinqConsoleApp.genruntimeconfig.cache
